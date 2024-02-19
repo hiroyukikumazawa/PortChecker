@@ -29,8 +29,8 @@ def check_port(host, port, timeout=3):
 
 
 # Example usage
-host = "rpc.seigma.xyz"  # Replace with the host you want to check
-port = 25567  # Replace with the port you want to check
+host = "65.109.109.14"  # Replace with the host you want to check
+port = 3000  # Replace with the port you want to check
 try:
     port = int(sys.argv[1])
 except Exception as e:  # noqa
@@ -42,21 +42,29 @@ times = []
 for i in range(num_checks):
     is_open, time_taken = check_port(host, port)
     status = "open" if is_open else "closed"
-    print(
-        f"[INFO] [{time.strftime('%Y-%m-%dT%H:%M:%S')}Z] - MESSAGE: "
-        f"Sent Request to {host}:{port} in {time_taken:.2f}ms - The port is {status}"
-    )
     if is_open:
+        print(
+            f"\x1b[34;1m[INFO] [{time.strftime('%Y-%m-%dT%H:%M:%S')}Z] - MESSAGE: \x1b[0m"
+            f"Sent Request to {host}:{port} in {time_taken:.2f}ms - The port is {status}"
+        )
         times.append(time_taken)
+    else:
+        print(
+            f"\x1b[33;1m[INFO] [{time.strftime('%Y-%m-%dT%H:%M:%S')}Z] - MESSAGE: \x1b[0m"
+            f"Sent Request to {host}:{port} in {time_taken:.2f}ms - The port is {status}"
+        )
 
 if times:
     average_time = sum(times) / len(times)
     print(
-        f"[SUCCESS] [{time.strftime('%Y-%m-%dT%H:%M:%S')}Z] - MESSAGE: "
+        f"\x1b[32;1m[SUCCESS] [{time.strftime('%Y-%m-%dT%H:%M:%S')}Z] - MESSAGE: \x1b[0m"
         f"Finished testing RPC with average time of {average_time:.2f}ms"
     )
 else:
-    print("[ERROR] No connection attempts were made.")
+    print(
+        f"\x1b[31;1m[ERROR] [{time.strftime('%Y-%m-%dT%H:%M:%S')}Z] - MESSAGE: \x1b[0m"
+        "No connection attempts were made."
+    )
 
 # Press enter to return to the main menu...
 input("Press enter to return to the main menu...")
