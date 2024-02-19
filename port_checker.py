@@ -50,7 +50,7 @@ for i in range(num_checks):
         times.append(time_taken)
     else:
         print(
-            f"\x1b[33;1m[INFO] [{time.strftime('%Y-%m-%dT%H:%M:%S')}Z] - MESSAGE: \x1b[0m"
+            f"\x1b[33;1m[WARNING] [{time.strftime('%Y-%m-%dT%H:%M:%S')}Z] - MESSAGE: \x1b[0m"
             f"Sent Request to {host}:{port} in {time_taken:.2f}ms - The port is {status}"
         )
 
