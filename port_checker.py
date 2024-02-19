@@ -29,8 +29,8 @@ def check_port(host, port, timeout=3):
 
 
 # Example usage
-host = "65.109.109.14"  # Replace with the host you want to check
-port = 3000  # Replace with the port you want to check
+host = "rpc.seigma.xyz"  # Replace with the host you want to check
+port = 25567  # Replace with the port you want to check
 try:
     port = int(sys.argv[1])
 except Exception as e:  # noqa
