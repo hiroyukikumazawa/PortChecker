@@ -14,7 +14,9 @@ This script utilizes Python's `socket` module to attempt to establish a TCP conn
 
 ### Installation
 
-No installation is required. Simply download or clone the script to your local machine.
+```bash
+pip install matplotlib
+```
 
 ### Usage Example
 
